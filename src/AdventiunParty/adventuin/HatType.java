@@ -1,4 +1,8 @@
 package AdventiunParty.adventuin;
 
-public class HatType {
+public enum HatType {
+    SANTA_CLAUS,
+    REINDEER,
+    FISHY_HAT,
+    NO_HAT
 }

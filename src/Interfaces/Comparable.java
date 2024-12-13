@@ -1,2 +1,5 @@
-package Interfaces;public interface Comparable {
+package Interfaces;
+
+public interface Comparable {
+    int compareTo(Penguin penguin);
 }

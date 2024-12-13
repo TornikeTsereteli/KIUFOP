@@ -1,2 +1,4 @@
-package SpotiJy;public class Artist {
+package SpotiJy;
+
+public class Artist {
 }

@@ -1,2 +1,4 @@
-package AdventiunParty.adventuin;public class adventuinParty {
+package AdventiunParty.adventuin;
+
+public class AdventuinParty {
 }

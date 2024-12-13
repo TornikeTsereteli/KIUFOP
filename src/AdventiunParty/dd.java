@@ -1,2 +1,4 @@
-package AdventiunParty;public class dd {
+package AdventiunParty;
+
+public class dd {
 }

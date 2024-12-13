@@ -1,2 +1,4 @@
-package SpotiJy;public class SpotiJy {
+package SpotiJy;
+
+public class SpotiJy {
 }

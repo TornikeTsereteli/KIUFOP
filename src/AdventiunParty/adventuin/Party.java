@@ -1,2 +1,5 @@
-package AdventiunParty.adventuin;public class Party {
+package AdventiunParty.adventuin;
+
+public class Party {
+
 }
