@@ -11,6 +11,15 @@ public class IntMath {
 
     }
 
+    public static int round(int n){
+        if(n % 10 >= 5){
+            return n - n % 10 + 10;
+        }
+        else{
+            return n - n % 10;
+        }
+    }
+
     public static int powerOfTwo(int exponent) {
         if (exponent > 31)
             ExceptionUtil.unsupportedOperation("exponent too large: " + exponent);
