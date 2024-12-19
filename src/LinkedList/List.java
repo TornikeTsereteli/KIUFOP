@@ -1,65 +1,60 @@
-//package LinkedList;
-//
-//import java.util.Arrays;
-//
-//public class List<A> {
-//    private int info;
-//    private List<A> next;
-//
-//    public List(int info, List<A> next) {
-//        this.info = info;
-//        this.next = next;
-//    }
-//    // [7 0 -3 13]
-//
-//    public boolean isEmpty(List<A> l){
-//        return l == null;
-//    }
-//
-//    public static void print(List<A> l){
-//        List<A> h = l;
-//        while (h != null){
-//            System.out.print(h.info + " ");
-//            h = h.next;
-//        }
-//    }
-//
-//    public void insert(int data, int i){
-//        List<A> l = next;
-//        for(int k = 1; k < i - 1; i++){
-//            l = l.next;
-//        }
-//        l.next = new List<A>(data,l.next);
-//
-//    }
-//
-//    public void insert(int data){
-//        next = new List<A>(data, next);
-//    }
-//
-//    public void delete(){
-//        next = next.next;
-//    }
-//
-//
-//    public int length(){
-//        int cnt = 1;
-//        List<A> l = next;
-//        while(l != null){
-//            cnt++;
-//            l = l.next;
-//        }
-//        return cnt;
-//    }
-//
-//    public int lengthRec(){
-//        if(next == null){
-//            return 1;
-//        }
-//        return 1 + next.lengthRec();
-//    }
-//
-//
+package LinkedList;
+
+import java.util.Arrays;
+import java.util.Iterator;
+
+public class List<T>  implements Iterable<T> {
+    private T info;
+    private List<T> next;
+
+    public List(T info, List<T> next) {
+        this.info = info;
+        this.next = next;
+    }
+    // [7 0 -3 13]
+
+    public boolean isEmpty(List<T> l){
+        return l == null;
+    }
+
+
+
+    public void insert(T data, int i){
+        List<T> l = next;
+        for(int k = 1; k < i - 1; i++){
+            l = l.next;
+        }
+        l.next = new List<T>(data,l.next);
+
+    }
+
+    public void insert(T data){
+        next = new List<T>(data, next);
+    }
+
+    public void delete(){
+        next = next.next;
+    }
+
+
+    public int length(){
+        int cnt = 1;
+        List<T> l = next;
+        while(l != null){
+            cnt++;
+            l = l.next;
+        }
+        return cnt;
+    }
+
+    public int lengthRec(){
+        if(next == null){
+            return 1;
+        }
+        return 1 + next.lengthRec();
+    }
+
+
 //    public static List<A> toList(int[] arr){
 //        List<A> l = null;
 //        // l =  1 2 3  arr[i] = 4 ->l = 4 1 2 3
@@ -80,10 +75,10 @@
 //        return arr;
 //    }
 //
-//
-//
-//
-//    public static void main(String[] args) {
+
+
+
+    public static void main(String[] args) {
 //        List<A> l = new List<A>(1,new List<A>(2,new List<A>(4,null)));
 //        // 1 next 2  next.next 4  next/next.next.....
 //        l.insert(7);
@@ -97,15 +92,44 @@
 //        print(l1);
 //
 ////        print(l);
-//
-//
-//
-//
-//
-//
-//    }
-//
-//
-//
-//
-//}
+
+
+        List<Integer> list = new List<>(1,new List<>(2,new List<>(3,null)));
+
+        for(int i: list){
+            System.out.println(i);
+        }
+
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+
+
+
+
+
+    }
+
+
+    static class ListIterator<T> implements Iterator<T> {
+        List<T> current;
+        ListIterator(List<T> l) {
+            current = l;
+        }
+        public boolean hasNext() { return current!=null; }
+        public T next() {
+            T result = current.info;
+            current = current.next;
+            return result;
+        }
+    }
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ListIterator<>(this);
+    }
+
+
+}
